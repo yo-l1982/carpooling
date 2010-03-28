@@ -1,0 +1,55 @@
+<script type="text/javascript" src="js/listdrivers.js"></script>
+<input type="hidden" name="passenger_id" id="passenger_id" value="<?= $passenger_id ?>"/>
+<table class="listdrivers_content">
+    <thead>
+        <tr>
+            <td>
+                F&ouml;rare
+            </td>
+            <td>
+                M&ouml;tesplats
+            </td>
+            <td>
+                Datum
+            </td>
+            <td>
+                Platser
+            </td>
+        </tr>
+    </thead>
+    <?
+        $row_class = '';
+        if (count($drivers) > 0) {
+        foreach($drivers as $driver) {
+            if ($row_class == '' || $row_class == 'row_even'){
+                $row_class = 'row_odd';
+            }
+            else {
+                $row_class = 'row_even';
+            }
+    ?>
+    <tr class='list_drivers_row <?=$row_class?>' id="<?=$driver['id']?>">
+        <td class='list_drivers_name'>
+            <?=$driver['name']?>
+        </td>
+        <td class='list_drivers_meetingpoint'>
+            <?=$driver['meetingpoint']?>
+        </td>
+        <td class='list_drivers_date'>
+            <?=$driver['date']?>
+        </td>
+        <td class='list_drivers_seats'>
+            <?=$driver['seats']?>
+        </td>
+    </tr>
+    <?  }
+    }
+    else { ?>
+    <tr class='list_drivers_row'>
+        <td class='list_drivers_name'>
+            Inga förare!
+        </td>
+    </tr>
+    <? }
+    ?>
+</table>

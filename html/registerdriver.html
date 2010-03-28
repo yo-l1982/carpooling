@@ -1,0 +1,182 @@
+<script type="text/javascript" src="js/registerdriver.js"></script>  
+    <table class="driverform content">
+        <tr>
+            <td>
+                <label for="game" id="game_label">Match</label>
+            </td>
+            <td>
+                <div id="gamebutton">
+                    <? if ($game[0]['hometeam']) { ?>
+                    <?= $game[0]['hometeam'] . " - " . $game[0]['awayteam'] ?>
+                    <? } else { ?>
+                    <label id="no_game_label">Välj match.</label>
+                    <? } ?>
+                </div>
+            </td>
+            <td>
+                <label class="error" for="game" id="game_error">Ange vilken match.</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="seats" id="seats_label">Platser i bilen</label>
+            </td>
+            <td colspan="2">
+                <select name="seats" id="seats">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="meetingpoint" id="meetingpoint_label">Mötesplats</label>
+            </td>
+            <td>
+                <input type="text" name="meetingpoint" id="meetingpoint" size="30" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="meetingpoint" id="meetingpoint_error">Ange vart du hämtar upp!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="date" id="date_label">Datum för resa</label>
+            </td>
+            <td>
+                <input type="text" name="date" id="datepicker" size="10" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="date" id="date_error">Ange datum!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="time" id="time_label">Tid för resa.</label>
+            </td>
+            <td>
+                <select name="hour" id="hour">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12" selected="selected" >12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="17">21</option>
+                    <option value="18">22</option>
+                    <option value="19">23</option>
+                    <option value="20">24</option>
+                </select>:
+                <select name="minute" id="minute">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="44">45</option>
+                </select>
+            </td>
+            <td>
+                <label class="error" for="time" id="time_error">Ange datum!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name" id="name_label">Namn</label>
+            </td>
+            <td>
+                <input type="text" name="name" id="name" size="30" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="name" id="name_error">Ange namn!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email" id="email_label">E-mail</label>
+            </td>
+            <td>
+                <input type="text" name="email" id="email" size="30" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="email" id="email_error">Ange E-mail!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="phonenumber" id="phonenumber_label">Telefonnr</label>
+            </td>
+            <td>
+                <input type="text" name="phonenumber" id="phonenumber" size="30" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="phonenumber" id="phonenumber_error">Ange telefonnr!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="message" id="message_label">Meddelande</label>
+            </td>
+            <td colspan='2'>
+                <textarea rows="4" cols="40" name="message" id="message" class="text-input"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password" id="password_label">Lösenord</label>
+            </td>
+            <td>
+                <input type="password" name="password" id="password" size="30" value="" class="text-input" />
+            </td>
+            <td>
+                <label class="error" for="password" id="password_error">Ange lösenord!</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="repeat_password" id="repeat_password_label">Repetera lösenord</label>
+            </td>
+            <td>
+                <input type="password" name="repeat_password" id="repeat_password" size="30" value="" class="text-input" />
+            </td>
+            <td>
+            <label class="error" for="repeat_password" id="repeat_password_error">Måste mactha</label>
+            <label class="error" for="repeat_password" id="password_match_error">Match!</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='3'>
+                <div id="submitbutton">submit</div>
+            </td>
+    </tr>
+</table>

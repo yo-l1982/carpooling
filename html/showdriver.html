@@ -1,0 +1,53 @@
+<script type="text/javascript" src="js/showdriver.js"></script>
+<input type="hidden" name="driver_id" id="driver_id" value="<?= $driver[0]['id']?>"/>
+<table class="showdriver content">
+    <tr>
+        <td>
+           Lediga säten: <?= $driver[0]['seats'] ?>
+        </td>
+        <td colspan="3">
+           Match: <?= $driver[0]['game'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+          Förare:  <?= $driver[0]['name'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+           Telefonnr: <?= $driver[0]['phonenumber'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+           Email: <?= $driver[0]['email'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Avresedatum: <?= $driver[0]['date'] ?>
+        </td>
+        <td>
+            Tid: <?= $driver[0]['time'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Info: <?= $driver[0]['message'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            Plats: <?= $driver[0]['meetingpoint'] ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <div class="button" id="join_driver_button">
+                &Aring;k med!
+            </div>
+        </td>
+    </tr>
+
+</table>

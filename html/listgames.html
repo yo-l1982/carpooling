@@ -1,0 +1,21 @@
+<script type="text/javascript" src="js/listgames.js"></script>
+<div id="listgames">
+    <table cellspacing="0" cellpadding="0"  class="content">
+        <? 	$row_class = '';
+        foreach($games as $game) {
+            if ($row_class == '' || $row_class == 'row_even'){
+                $row_class = 'row_odd';
+            }
+            else {
+                $row_class = 'row_even';
+            }
+        ?>
+        <tr class='<?=$row_class?> listgames_row' id="<?=$game['id']?>">
+            <td class='hometeam'  ><?=$game['hometeam']?></td>
+            <td class='awayteam'  ><?=$game['awayteam']?></td>
+            <td class='date'  ><?=$game['date']?></td>
+            <td class='time'  ><?=$game['time']?></td>
+        </tr>
+        <?  }?>
+    </table>
+</div>

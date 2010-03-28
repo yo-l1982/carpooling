@@ -1,0 +1,229 @@
+@CHARSET "ISO-8859-1";
+body {
+	margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        font-family:"Verdana", "Arial";
+        font-size: 12px;
+}
+table thead tr td {
+        background-color: #999999;
+        font-weight: bold;
+}
+
+#header {
+	width: 900px;
+        height: 100px;
+        margin: -1px;
+        padding: 0px 0px 0px 0px;
+        border: 1px solid;
+}
+
+#menu {
+	width: 200px;
+        height: 400px;
+        margin: -1px;
+        padding: 0px 0px 0px 0px;
+        border: 1px solid;
+        float: left;
+        position: relative;
+}
+
+#info {
+	width: 200px;
+        height: 400px;
+        margin: -1px;
+        padding: 0px 0px 0px 0px;
+        border: 1px solid;
+        float: left;
+        position: relative;
+}
+
+#content {
+	width: 500px;
+        margin: -1px;
+        padding: 0px 0px 0px 0px;
+        border: 1px solid;
+        float: left;
+        position: relative;
+}
+
+#footer {
+	width: 900px;
+        height: 100px;
+        margin: -1px;
+        padding: 0px 0px 0px 0px;
+        border: 1px solid;
+        clear: both;
+}
+.listgames_row {
+    height: 40px;
+}
+
+#listgames {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 300px;
+    width:300px;
+    background-color: white;
+    overflow: auto;
+    position: absolute;
+    z-index: 1;
+}
+
+#driver_button {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 100px;
+    width: 300px;
+    background: lightgray;
+
+}
+
+#driver_button:hover {
+    cursor: pointer;
+    background: gray;
+
+}
+
+#passenger_button {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 100px;
+    width: 300px;
+    background: lightgray;
+}
+
+#passenger_button:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+#join_driver_button {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+/*    height: 100px;
+    width: 300px;*/
+    background: lightgray;
+}
+
+#join_driver_button:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+#gamebutton {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 30px;
+    width: 200px;
+    background: lightgray;
+}
+#gamebutton:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+#installdbbutton {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 40px;
+    width: 100px;
+    background: lightgray;
+}
+
+#installdbbutton:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+
+#submitbutton {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 20px;
+    width: 60px;
+    background: lightgray;
+}
+#submitbutton:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+.row_odd {
+	background:#eeeeee;
+        width: 300px;
+}
+.row_odd:hover  {
+	background:#aaaaaa;
+        cursor: pointer;
+}
+.hometeam {
+    width: 300px;
+}
+.row_even {
+        width: 300px;
+	background:#ffffff;
+}
+.row_even:hover  {
+	background:#aaaaaa;
+        cursor: pointer;
+}
+.driverform {
+        margin: 0;
+        padding: 0;
+        
+}
+.passengerform {
+        margin: 0;
+        padding: 0;
+}
+.showdriver{
+        margin: 0;
+        padding: 0;
+}
+.start {
+        margin: 0;
+        padding: 0;
+}
+
+.error {
+    visibility: hidden;
+}
+
+.list_drivers_row {
+    height: 40px;
+    width: 100%;
+}
+
+.listdrivers_content {
+    width: 100%;
+}
+
+#password_login {
+    width: 100px;
+}
+
+#user_login {
+    width: 100px;
+}
+
+#login_button {
+    margin:0px;
+    padding:0px;
+    border:1px gray solid;
+    height: 20px;
+    width: 60px;
+    background: lightgray;
+}
+
+#login_button:hover {
+    cursor: pointer;
+    background: gray;
+}
