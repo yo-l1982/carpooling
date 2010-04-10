@@ -8,8 +8,7 @@ class showdriver {
 
         if (!empty($id)) {
             if ($cmd == 'join_driver') {
-                session_start();
-                $passenger_id = $_SESSION['passenger_id'];
+                $passenger_id = $_SESSION['user_id'];
                 $driver_id = $id;
                 // set up db.
                 $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
@@ -28,7 +27,6 @@ class showdriver {
                 print 'joinded driver';
             }
             else {
-
                 // set up db.
 
                 $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
@@ -36,7 +34,11 @@ class showdriver {
                 if (!$db->isSetDatabase(DB_NAME)) {
                     // redirect to installdb!
                 }
-                $query = sprintf("SELECT * FROM driver WHERE id= '%s'",
+
+                $query = sprintf("SELECT * FROM driver 
+                                LEFT JOIN user ON driver.userid = user.id
+                                LEFT JOIN games ON games.id = driver.gameid
+                                WHERE driver.id = '%s'" ,
                         mysql_real_escape_string($id));
 
                 $result = $db->fetchQuery($query, 'hash');

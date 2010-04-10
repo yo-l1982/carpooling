@@ -3,21 +3,40 @@ require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
 include_once('conf/config.inc');
 class listgames {
-    function render($cmd) {
-        $page = new Template('html/listgames.html');
+    function render($cmd, $id) {
 
-        $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
-        //Check if db is present. Redirect to install db page if not.
-        if (!$db->isSetDatabase(DB_NAME)) {
-            // redirect to installdb!
+        if (!empty($id)) {
+            $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
+            //Check if db is present. Redirect to install db page if not.
+            if (!$db->isSetDatabase(DB_NAME)) {
+                // redirect to installdb!
+            }
+            // get the game
+            $query = sprintf("SELECT * FROM games WHERE id= '%s'",
+                    mysql_real_escape_string($id));
+
+            $result = $db->fetchQuery($query, 'hash');
+
+            print $result[0]['id'] . ',' . $result[0]['hometeam'] . " - " . $result[0]['awayteam'];
         }
+        else {
 
-        $query = sprintf("SELECT * FROM games");
+            $page = new Template('html/listgames.html');
 
-        $result = $db->fetchQuery($query ,'hash');
-        // send games to template for listing
-        $page->set('games', $result);
+            $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
+            //Check if db is present. Redirect to install db page if not.
+            if (!$db->isSetDatabase(DB_NAME)) {
+                // redirect to installdb!
+            }
 
-        echo $page->fetch();
+            $query = sprintf("SELECT * FROM games");
+
+            $result = $db->fetchQuery($query ,'hash');
+            // send games to template for listing
+            $page->set('games', $result);
+
+            echo $page->fetch();
+
+        }
     }
 }

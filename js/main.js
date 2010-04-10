@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //get main content ajax
-    $.get("index.php?page=start", function(data){
+    $.get("index.php?page=listdrivers", function(data){
         // set content div with returnde data.
         $('#content').html(data);
     });
@@ -11,5 +11,14 @@ $(document).ready(function() {
     $.get("index.php?page=login", function(data){
         // set content div with returnde data.
         $('#info').html(data);
+    });
+
+        // if button driver clicked send driver reg form.
+    $('#header').click( function(){
+    // ajax call.
+        $.get("index.php?page=listdrivers", function(data){
+        // set content div with returnde data.
+            $('#content').html(data);
+        });
     });
 });

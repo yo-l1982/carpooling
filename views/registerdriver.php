@@ -4,25 +4,10 @@ require_once('lib/Template.class.php');
 include_once('conf/config.inc');
 class registerdriver {
     function render($cmd, $id) {
-        // if id is sent. then a game has been choosen.
-        if (!empty($id)) {
-            $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
-            //Check if db is present. Redirect to install db page if not.
-            if (!$db->isSetDatabase(DB_NAME)) {
-                // redirect to installdb!
-            }
-            // get the game
-            $query = sprintf("SELECT * FROM games WHERE id= '%s'",
-                    mysql_real_escape_string($id));
 
-            $result = $db->fetchQuery($query, 'hash');
-            $db->close();
-            // fetch template
-            $page = new Template('html/registerdriver.html');
-            // send game info to template
-            $page->set('game', $result);
-            // print filled info.
-            print $page->fetch();
+        // still needed????? Oh yes.
+        if (!empty($id)) {
+
         }
         else {
             // save driver
@@ -30,7 +15,9 @@ class registerdriver {
                 // set up db.
                 $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
                 // get POST info
-                $game = $_POST['game'];
+
+                //todo: fix gameid instead!!!
+                $game_id = $_POST['game_id'];
                 $seats = $_POST['seats'];
                 $meetingpoint = $_POST['meetingpoint'];
                 $date = $_POST['date'];
@@ -40,20 +27,40 @@ class registerdriver {
                 $phonenumber = $_POST['phonenumber'];
                 $message = $_POST['message'];
                 $password = $_POST['password'];
-                // insert driver in db.
-                $query = sprintf("INSERT INTO driver (name, phonenumber, meetingpoint, game, date, time, email, message, password, seats)VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+
+                $delete_user = $_POST['save_user'];
+                $delete_date = '';
+                // Todo fix time aswell or add a day to date.
+                if ($delete_user) {
+                    $delete_date = $date;
+                }
+                // create user
+                $query = sprintf("INSERT INTO user (name, phonenumber, deletedate, password, email)VALUES ('%s', '%s', '%s', '%s', '%s')",
                         mysql_real_escape_string($name),
                         mysql_real_escape_string($phonenumber),
+                        mysql_real_escape_string($delete_date),
+                        mysql_real_escape_string($password),
+                        mysql_real_escape_string($email));
+
+
+                $db->query($query);
+                // get created user id.
+                $userid = $db->getLastId();
+
+                // create driver
+                $query = sprintf("INSERT INTO driver (userid, meetingpoint, gameid, date, time, message, seats)VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                        mysql_real_escape_string($userid),
                         mysql_real_escape_string($meetingpoint),
-                        mysql_real_escape_string($game),
+                        mysql_real_escape_string($game_id),
                         mysql_real_escape_string($date),
                         mysql_real_escape_string($time),
-                        mysql_real_escape_string($email),
                         mysql_real_escape_string($message),
-                        mysql_real_escape_string($password),
                         mysql_real_escape_string($seats));
 
                 $db->query($query);
+
+                $_SESSION['user_id'] = $db->getLastId();
+
                 $db->close();
 
                 //redirect after save to list drivers
@@ -63,11 +70,40 @@ class registerdriver {
             }
             // first time in just print page
             else {
-
-                $result = array(0 => array('hometeam' => '', 'awayteam' => ''));
-
                 $page = new Template('html/registerdriver.html');
-                $page->set('game', $result);
+                $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
+                // user logged in
+                session_start();
+                if ($_SESSION['user_id'] != '') {
+
+                    $user_id = $_SESSION['user_id'];
+                    // create driver
+                    $query = sprintf("SELECT * FROM user WHERE id = '%s'",
+                            mysql_real_escape_string($user_id));
+
+                    $result = $db->fetchQuery($query, 'hash');
+
+                    $name = '';
+                    $phonenumber = '';
+                    $email = '';
+                    $name = $result[0]['name'];
+                    $phonenumber = $result[0]['phonenumber'];
+                    $email = $result[0]['email'];
+
+                    $db->close();
+
+                }
+                else {
+                    $name = '';
+                    $phonenumber = '';
+                    $email = '';
+
+                }
+
+                $page->set('name', $name);
+                $page->set('phonenumber', $phonenumber);
+                $page->set('email', $email);
+
                 print $page->fetch();
             }
         }

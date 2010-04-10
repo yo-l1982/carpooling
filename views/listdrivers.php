@@ -4,7 +4,7 @@ require_once('lib/Template.class.php');
 include_once('conf/config.inc');
 class listdrivers {
     function render($cmd) {
-
+error_reporting(E_RECOVERABLE_ERROR);
         $page = new Template('html/listdrivers.html');
 
         $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
@@ -13,9 +13,12 @@ class listdrivers {
             // redirect to installdb!
         }
 
-        $query = sprintf("SELECT * FROM driver");
+        $query = sprintf("SELECT driver.id as id, name, meetingpoint, date, seats FROM driver
+                             LEFT JOIN user ON driver.userid = user.id");
 
         $result = $db->fetchQuery($query ,'hash');
+        // send drivers to template
+
         // send drivers to template
         $page->set('drivers', $result);
         // print page

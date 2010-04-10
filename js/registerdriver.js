@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
     //Add the datepicker.
-    $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
-
+    $("#datepicker").datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
 
     //Assign submitbutton clickevent
     $('#submitbutton').click(function(){
-
         //Collect form data
-        var game = $('#gamebutton').html();
+        var game_id = $('#game_id').val();
         var seats = $('#seats').val();
         var meetingpoint = $('#meetingpoint').val();
         var date = $('#datepicker').val();
@@ -19,10 +19,10 @@ $(document).ready(function() {
         var message = $('#message').val();
         var password = $('#password').val();
         var repeat_password = $('#repeat_password').val();
-
+        var save_user = $('#save_user').val();
         //validate all required field.
         var all_required_fields = true;
-        if ($('#no_game_label').size() != 0) {
+        if (game_id.replace(/^\s+|\s+$/g, '')  == '') {
             all_required_fields = false;
             $('#game_error').css('visibility', 'visible' );
         }
@@ -76,19 +76,22 @@ $(document).ready(function() {
                 //Set URL for POST
                 var url = "index.php?page=registerdriver&cmd=save";
                 //Send form data as POST
-                $.post(url, {   name: name,
-                                phonenumber: phonenumber,
-                                game: game,
-                                password: password,
-                                seats: seats,
-                                meetingpoint: meetingpoint,
-                                date: date,
-                                time: time,
-                                email: email,
-                                message: message}, function(data){
+                $.post(url, {
+                    name: name,
+                    phonenumber: phonenumber,
+                    game_id: game_id,
+                    password: password,
+                    seats: seats,
+                    meetingpoint: meetingpoint,
+                    date: date,
+                    time: time,
+                    email: email,
+                    message: message,
+                    save_user: save_user
+                }, function(data){
 
-                                    //Set div Content to data posted back
-                                    $('#content').html(data);
+                    //Set div Content to data posted back
+                    $('#content').html(data);
                 });
             }
             else {
@@ -144,6 +147,22 @@ $(document).ready(function() {
                 $('#password_match_error').css('visibility', 'hidden' );
             }
         }
+    });
+    $('#help_save_user').click(function() {
+        //Show list of games or collapse depending on if it is shown
+        if ($('#help_save_user_popup').size() == 0){
+            //Set URL for GET
+            $.get("index.php?page=help&cmd=save_user", function(data){
+
+                //Set returned data as "popup
+                $('#help_save_user').after(data);
+            });
+        }
+        else {
+            // remove if shown
+            $('#help_save_user_popup').remove();
+        }
+        
     });
 });
  

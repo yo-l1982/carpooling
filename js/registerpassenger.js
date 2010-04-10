@@ -47,4 +47,20 @@ $(document).ready(function() {
             }
         }
     });
+
+    $('#help_save_user').click(function() {
+        //Show list of games or collapse depending on if it is shown
+        if ($('#help_save_user_popup').size() == 0){
+            //Set URL for GET
+            $.get("index.php?page=help&cmd=save_user", function(data){
+                //Set returned data as "popup
+                $('#help_save_user').after(data);
+            });
+        }
+        else {
+            // remove if shown
+            $('#help_save_user_popup').remove();
+        }
+
+    });
 });
