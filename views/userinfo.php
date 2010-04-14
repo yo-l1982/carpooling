@@ -5,7 +5,7 @@ include_once('conf/config.inc');
 require_once('views/login.php');
 class userinfo {
     function render($cmd) {
-        error_reporting(E_NOTICE);
+        error_reporting(E_ALL);
         if ($cmd == 'logout') {
             session_start();
             session_unset();
@@ -24,10 +24,34 @@ class userinfo {
                     mysql_real_escape_string($user_id));
 
             $result = $db->fetchQuery($query, 'hash');
-
+            $page = new Template('html/userinfo.html');
 
             // print processed page.
-            $page->set('result', $result);
+            $page->set('user', $result);
+            $query = sprintf("SELECT * FROM user
+                                JOIN driver ON driver.userid = user.id
+                                LEFT JOIN driver_passenger ON driver.id = driver_passenger.passenger_id
+                                LEFT JOIN passenger ON passenger.id = driver_passenger.passenger_id
+                                JOIN games ON games.id = driver.gameid
+                                WHERE user.id = '%s'",
+                    mysql_real_escape_string($user_id));
+
+            $result = $db->fetchQuery($query, 'hash');
+
+            $page->set('driver_set', $result);
+
+            $query = sprintf("SELECT * FROM user
+                                JOIN passenger ON passenger.userid = user.id
+                                LEFT JOIN driver_passenger ON passenger.id = driver_passenger.passenger_id
+                                LEFT JOIN driver ON driver.id = driver_passenger.driver_id
+                                JOIN games ON games.id = driver.gameid
+                                WHERE user.id = '%s'",
+                    mysql_real_escape_string($user_id));
+
+            $result = $db->fetchQuery($query, 'hash');
+            
+            $page->set('passenger_set', $result);
+
             print $page->fetch();
         }
     }

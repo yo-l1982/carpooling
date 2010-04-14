@@ -5,9 +5,12 @@ include_once('conf/config.inc');
 class showdriver {
     function render($cmd, $id) {
         // id needed to show driver.
-
+        error_reporting(E_RECOVERABLE_ERROR);
         if (!empty($id)) {
             if ($cmd == 'join_driver') {
+                session_start();
+                //todo passenger is not inserted if ogged in as user.
+                
                 $passenger_id = $_SESSION['user_id'];
                 $driver_id = $id;
                 // set up db.
@@ -17,7 +20,7 @@ class showdriver {
                     // redirect to installdb!
                 }
                 //insert connection between pass and drv info in db
-                $query = sprintf("INSERT INTO driver_passenger (passenger_id, drivers_id)VALUES (%d, %d)",
+                $query = sprintf("INSERT INTO driver_passenger (passenger_id, driver_id)VALUES (%d, %d)",
                         mysql_real_escape_string($passenger_id),
                         mysql_real_escape_string($driver_id));
 

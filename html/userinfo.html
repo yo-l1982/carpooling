@@ -1,17 +1,49 @@
 <script type="text/javascript" src="js/userinfo.js"></script>
-<table class="userinfo content">
+<table id="userinfo_table"class="userinfo content">
     <tr>
         <td colspan="2" id='user_logout'>logga ut</td>
     </tr>
     <tr>
-        <td colspan="2" id='user_label_name'>Hej <?= $result[0]['name'] ?></td>
+        <td colspan="2" id='user_label_name'>Hej <?= $user[0]['name'] ?></td>
     </tr>
+    <? if (count($driver_set) > 0) { ?>
     <tr>
-        <td id='user_label_driver'>åker med</td>
-        <td id='user_driver'>asd</td>
+        <td colspan="2" id='user_label_driver'>Kör:</td>
     </tr>
+    <?     foreach ($driver_set as $driver ) { ?>
     <tr>
-        <td id='user_label_driver'>kör</td>
-        <td id='user_driver'>asd</td>
+        <td colspan="2">
+            <table id="user_info_driver_table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td id='driver_game' colspan="2">
+                        <span id="match_label">Match:</span>&nbsp;<?= $driver['hometeam'] . ' - ' . $driver['awayteam'] ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="date_label">Tid:</span>&nbsp;<?= $driver['time'] ?>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>
+                        <span id="time_lsbel">Datum:</span>&nbsp;<?= $driver['date'] ?>
+                    </td>
+                </tr>
+            </table>
+        </td>
     </tr>
+    <?     }
+       }
+       if (count($passenger_set) > 0) {
+    ?>
+    <tr>
+        <td colspan="2" id='user_label_passenger'>Åker med:</td>
+    </tr>
+    <?     foreach ($passenger_set as $passenger) { ?>
+    <tr>
+        <td id='passenger_game'><?= $passenger['hometeam'] . ' - ' . $passenger['awayteam'] ?></td>
+    </tr>
+    <?     }
+       }
+    ?>
 </table>

@@ -258,3 +258,44 @@ table thead tr td {
     color: blue;
     cursor: pointer;
 }
+
+.menu_item {
+    width: 100%;
+}
+
+#menu_table{
+    width: 100%;
+
+}
+
+#date_label {
+    font-size: 10px;
+}
+
+#time_label {
+    font-size: 10px;
+}
+
+#user_info_driver_table {
+    background: lightgray;
+    border: 0;
+    width: 100%;
+}
+
+#user_info_driver_table:hover {
+    border: 0;
+    background: gray;
+    cursor: pointer;
+}
+#user_info_driver_table tr {
+    border: 0;
+}
+#user_info_driver_table tr {
+}
+#user_info_driver_table tr td {
+    font-size: 10px;
+    border: 0;
+}
+#userinfo_table {
+    width: 100%;
+}

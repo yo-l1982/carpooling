@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS `driver_passenger`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `driver_passenger` (
   `id` int(11) NOT NULL,
-  `drivers_id` int(11) NOT NULL,
+  `driver_id` int(11) NOT NULL,
   `passenger_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

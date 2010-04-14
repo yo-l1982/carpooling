@@ -4,7 +4,7 @@ require_once('lib/Template.class.php');
 include_once('conf/config.inc');
 class listdrivers {
     function render($cmd) {
-error_reporting(E_RECOVERABLE_ERROR);
+        error_reporting(E_RECOVERABLE_ERROR);
         $page = new Template('html/listdrivers.html');
 
         $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
