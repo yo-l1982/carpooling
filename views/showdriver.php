@@ -1,14 +1,12 @@
 <?php
 require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 class showdriver {
     function render($cmd, $id) {
         // id needed to show driver.
-        error_reporting(E_RECOVERABLE_ERROR);
         if (!empty($id)) {
             if ($cmd == 'join_driver') {
-                session_start();
                 //todo passenger is not inserted if ogged in as user.
                 
                 $passenger_id = $_SESSION['user_id'];

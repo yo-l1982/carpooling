@@ -1,7 +1,7 @@
 <?php
 require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 
 class registerpassenger {
     function render($cmd) {

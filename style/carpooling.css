@@ -1,60 +1,75 @@
 @CHARSET "ISO-8859-1";
 body {
-	margin: 0px 0px 0px 0px;
-        padding: 0px 0px 0px 0px;
+	margin: 0px;
+        padding: 0px;
         font-family:"Verdana", "Arial";
-        font-size: 12px;
+        font-size: 10px;
 }
+
 table thead tr td {
         background-color: #999999;
         font-weight: bold;
 }
 
+#container {
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+}
+
 #header {
-	width: 900px;
-        height: 100px;
-        margin: -1px;
-        padding: 0px 0px 0px 0px;
-        border: 1px solid;
+	width: 860px;
+        height: 160px;
+        margin: 0;
+        padding: 0px 20px;
+        border: 1px solid #c5c6ca;
         cursor: pointer;
+        background-color: #0065ad;
 }
 
 #menu {
-	width: 200px;
-        height: 400px;
-        margin: -1px;
-        padding: 0px 0px 0px 0px;
-        border: 1px solid;
+	width: 188px;
+        height: 390px;
+        margin: 5px;
+        padding: 0px;
+        border: 1px solid #c5c6ca;
         float: left;
         position: relative;
+        background-color: #efebef;
 }
 
 #info {
-	width: 200px;
-        height: 400px;
-        margin: -1px;
-        padding: 0px 0px 0px 0px;
-        border: 1px solid;
+	width: 188px;
+        height: 390px;
+        margin: 5px;
+        padding: 0px;
+        border: 1px solid #c5c6ca;
         float: left;
         position: relative;
+        background-color: #efebef;
 }
 
 #content {
-	width: 500px;
-        margin: -1px;
-        padding: 0px 0px 0px 0px;
-        border: 1px solid;
+	width: 488px;
+        height: 390px;
+        margin: 5px;
+        padding: 0px;
+        border: 1px solid #c5c6ca;
         float: left;
         position: relative;
+        background-color: #efebef;
+        overflow: auto;
 }
 
 #footer {
 	width: 900px;
         height: 100px;
-        margin: -1px;
-        padding: 0px 0px 0px 0px;
-        border: 1px solid;
+        margin: 0px;
+        padding: 0px;
+        border: 1px solid #c5c6ca;
         clear: both;
+        background-color: #00284a;
 }
 .listgames_row {
     height: 40px;
@@ -106,9 +121,11 @@ table thead tr td {
     margin:0px;
     padding:0px;
     border:1px gray solid;
-/*    height: 100px;
-    width: 300px;*/
+    height: 30px;
+    width: 60px;
     background: lightgray;
+    line-height: 30px;
+    text-align: center;
 }
 
 #join_driver_button:hover {
@@ -118,15 +135,22 @@ table thead tr td {
 
 #gamebutton {
     margin:0px;
-    padding:0px;
+    padding: 0;
     border:1px gray solid;
-    height: 30px;
+    height: 18px;
     width: 200px;
     background: lightgray;
+    text-align: center;
+    cursor: pointer;
+    line-height: 18px;
 }
+
+#gamebutton label {
+    cursor: pointer;
+}
+
 #gamebutton:hover {
     background: gray;
-    cursor: pointer;
 }
 
 #installdbbutton {
@@ -151,6 +175,9 @@ table thead tr td {
     height: 20px;
     width: 60px;
     background: lightgray;
+    float: right;
+    line-height: 20px;
+    text-align: center;
 }
 #submitbutton:hover {
     background: gray;
@@ -189,6 +216,11 @@ table thead tr td {
         margin: 0;
         padding: 0;
 }
+.showdriver td{
+        height: 30px;
+}
+
+
 .start {
         margin: 0;
         padding: 0;
@@ -268,14 +300,6 @@ table thead tr td {
 
 }
 
-#date_label {
-    font-size: 10px;
-}
-
-#time_label {
-    font-size: 10px;
-}
-
 #user_info_driver_table {
     background: lightgray;
     border: 0;
@@ -298,4 +322,23 @@ table thead tr td {
 }
 #userinfo_table {
     width: 100%;
+}
+
+#header_content {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: url('/images/ifk_logga.png') right no-repeat #0065ad;
+}
+#header_content h1 {
+    color: #ffffff;
+}
+
+#register_date_table {
+    width: 100%;
+}
+
+#game_display{
+    border: 1px solid #c5c6ca;
+    font-weight: bold;
 }

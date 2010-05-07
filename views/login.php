@@ -1,15 +1,13 @@
 <?php
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 require_once('lib/Database.class.php');
 require_once('views/userinfo.php');
 
 class login {
     function render($cmd) {
-        error_reporting(E_RECOVERABLE_ERROR);
-        session_start();
 
-        if ($_SESSION['user_id'] != '') {
+        if (isset($_SESSION['user_id'])) {
             // get template
             
             $userinfo = new userinfo();

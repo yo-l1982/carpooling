@@ -1,7 +1,7 @@
 <?php
 require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 class registerdriver {
     function render($cmd, $id) {
 
@@ -73,8 +73,7 @@ class registerdriver {
                 $page = new Template('html/registerdriver.html');
                 $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);
                 // user logged in
-                session_start();
-                if ($_SESSION['user_id'] != '') {
+                if (isset($_SESSION['user_id'])) {
 
                     $user_id = $_SESSION['user_id'];
                     // create driver

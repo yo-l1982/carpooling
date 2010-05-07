@@ -2,7 +2,7 @@
 require_once('lib/Template.class.php');
 require_once('lib/Database.class.php');
 require_once('lib/mysql_dump.class.php');
-require_once('conf/config.inc');
+require_once('conf/config.inc.php');
 
 //Installs db from sql dump.
 class installdb {
@@ -18,10 +18,6 @@ class installdb {
             else {
                 print 'Success! Databasen installerad <a href="index.php">Tillbaks till Carpooling</a>';
             }
-
-            
-             
-
         }
         else {
             $page = new Template('html/installdb.html');

@@ -1,7 +1,7 @@
 <?php
 require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 class listgames {
     function render($cmd, $id) {
 
@@ -16,8 +16,7 @@ class listgames {
                     mysql_real_escape_string($id));
 
             $result = $db->fetchQuery($query, 'hash');
-
-            print $result[0]['id'] . ',' . $result[0]['hometeam'] . " - " . $result[0]['awayteam'];
+            print $result[0]['id'] . ',' . $result[0]['hometeam'] . " - " . $result[0]['awayteam'] . "(". $result[0]['date'] .")";
         }
         else {
 

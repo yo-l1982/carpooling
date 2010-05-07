@@ -13,6 +13,16 @@ $(document).ready(function() {
         $('#info').html(data);
     });
 
+    $.get("index.php?page=header", function(data){
+        // set content div with returnde data.
+        $('#header').html(data);
+    });
+
+    $.get("index.php?page=footer", function(data){
+        // set content div with returnde data.
+        $('#footer').html(data);
+    });
+
         // if button driver clicked send driver reg form.
     $('#header').click( function(){
     // ajax call.

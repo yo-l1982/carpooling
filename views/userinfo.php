@@ -1,13 +1,11 @@
 <?php
 require_once('lib/Template.class.php');
 require_once('lib/Database.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 require_once('views/login.php');
 class userinfo {
     function render($cmd) {
-        error_reporting(E_ALL);
         if ($cmd == 'logout') {
-            session_start();
             session_unset();
             $login = new login();
             // print processed page.

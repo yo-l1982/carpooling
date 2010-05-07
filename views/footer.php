@@ -1,11 +1,10 @@
 <?php
 require_once('lib/Template.class.php');
 include_once('conf/config.inc.php');
-class main {
-    // main file contains header etc for page.
+class footer {
     function render($cmd) {
         // get template
-        $page = new Template('html/main.html');
+        $page = new Template('html/footer.html');
         // print processed page.
         print $page->fetch();
     }

@@ -1,10 +1,9 @@
 <?php
 require_once('lib/Database.class.php');
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 class listdrivers {
     function render($cmd) {
-        error_reporting(E_RECOVERABLE_ERROR);
         $page = new Template('html/listdrivers.html');
 
         $db = new Database(DB_USERNAME, DB_PASSWORD, DB_HOST);

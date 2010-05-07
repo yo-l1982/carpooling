@@ -1,4 +1,9 @@
 <?php
+
+// todo
+// saession start here
+session_start();
+
 include_once('conf/config.inc');
 require_once('lib/Database.class.php');
 //Index.php takes care of all the ajax calls and redirects them to the view.

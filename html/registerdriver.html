@@ -56,56 +56,58 @@
     </tr>
     <tr>
         <td>
-            <label for="date" id="date_label">Datum för resa</label>
+            <label for="date" id="date_label">Datum</label>
         </td>
-        <td>
-            <input type="text" name="date" id="datepicker" size="10" value="" class="text-input" />
-        </td>
-        <td>
-            <label class="error" for="date" id="date_error">Ange datum!</label>
+        <td colspan="2">
+            <table id="register_date_table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="text" name="date" id="datepicker" size="10" value="" class="text-input" />
+                    </td>
+                    <td style="width: 80px;">
+                        <label for="time" id="time_label">Tid</label>
+                    </td>
+                    <td>
+                        <select name="hour" id="hour">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected" >12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="17">21</option>
+                            <option value="18">22</option>
+                            <option value="19">23</option>
+                            <option value="20">24</option>
+                        </select>:
+                        <select name="minute" id="minute">
+                            <option value="00">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="44">45</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
     <tr>
-        <td>
-            <label for="time" id="time_label">Tid för resa.</label>
-        </td>
-        <td>
-            <select name="hour" id="hour">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12" selected="selected" >12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="17">21</option>
-                <option value="18">22</option>
-                <option value="19">23</option>
-                <option value="20">24</option>
-            </select>:
-            <select name="minute" id="minute">
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="44">45</option>
-            </select>
-        </td>
-        <td>
-            <label class="error" for="time" id="time_error">Ange datum!</label>
-        </td>
     </tr>
     <? if ($name == '') { ?>
     <tr>

@@ -1,6 +1,6 @@
 <?php
 require_once('lib/Template.class.php');
-include_once('conf/config.inc');
+include_once('conf/config.inc.php');
 class start {
     function render($cmd) {
         // get template
